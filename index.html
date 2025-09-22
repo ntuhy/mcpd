@@ -135,9 +135,6 @@ function clearForm() {
 }
 
 
-
-
-
 </script>
 
 
@@ -153,7 +150,7 @@ function clearForm() {
 <table>
 <tr>
 <td class="table-form">
-<span class="h2">Speed Information</span>
+<span class="h2">Vehicle Speed Data</span>
 <form autocomplete="off">
 Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
 Confirmed/Locked: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
@@ -243,7 +240,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 </td>
 <td class="table-bs">
 
-<span class="h2">Dynamic Results</span><br>
+<span class="h2">Dynamic Speed Results</span><br>
 
 <span id="obsdiff"></span><br><br>
 <!--<span id="output" class="bold-ds"></span><br>-->
@@ -251,8 +248,6 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <hr class="hr1"></hr>
 
 <span class="h2">Traffic Codes</span><br>
-<a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br>
-<hr class="hr3"></hr>
 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding<br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1302.html" target="_blank">41-6a-1302(2)(b)</a> - Passing School Bus w/ flashing red<br>
@@ -306,6 +301,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <td class="table-bs">
 
 <span class="h2">Domestic Violence</span><br>
+<a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S2.1.html#:~:text=(c),or%20older%20who%3A" target="_blank">77-36-2.1</a> - Intimate Partner Definition<br>
 <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S102.html#:~:text=(7),or%20older%20who%3A" target="_blank">78B-7-102</a> - Cohabitant Definition<br>
@@ -316,7 +312,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 
 <br><hr class="hr1"></hr>
 
-<span class="h2">Helpful Links</span><br>
+<span class="h2">Helpful Websites</span><br>
 <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
 <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
 <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">&#128274;</span><br>
@@ -325,24 +321,28 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
 <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
 <a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a><br>
-<a href="https://vpic.nhtsa.dot.gov/decoder" target="_blank">NHTSA VIN Decoder</a><br>
 <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
 <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a><br>
-<a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br><br>
+<a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br>
+<span class="info" style="margin-left:0px !important;">&#128274; Access via Google required</span>
 
-<span class="info" style="margin-left:0px !important;">&#128274; Access via Google required</span><br>
+<hr class="hr3"></hr>
+
+<form autocomplete="off">
+    <input type="text" id="VIN" placeholder="Enter VIN" maxlength="17"/>
+    <button class="button" onclick="vinCheck()">Search VIN</button>
+    <button class="button" type="reset" value="Reset" onclick="clearForm()">Reset</button>
+</form>
 
 <hr class="hr1"></hr>
 
-<span class="h2">Maps</span><br>
+<span class="h2">Local Area Maps</span><br>
 <a href="https://www.moabcity.gov/291/City-Maps" target="_blank">Moab City Maps</a>
 <ul>
-<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Viewer</a></li>
-<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning</a></li>
-<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain</a></li>
-</ul>
-<hr class="hr3"></hr>
-<ul>
+  <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Viewer</a></li>
+  <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning</a></li>
+  <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain</a></li>
+
   <li><a href="PDFs/Maps/CinemaCourts.pdf" target="_blank">Cinema Courts</a><span class="info">PDF</span></li>
   <li><a href="PDFs/Maps/GrandOasis.pdf" target="_blank">Grand Oasis</a><span class="info">PDF</span></li>
   <li><a href="PDFs/Maps/MoabSpringsRanch.pdf" target="_blank">Moab Springs Ranch</a><span class="info">PDF</span></li>
@@ -351,11 +351,9 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <br>
 <a href="https://grandcountyutah.net/689/Maps" target="_blank">Grand County Maps</a>
 <ul>
-<li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
-<li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
-</ul>
-<hr class="hr3"></hr>
-<ul>
+  <li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
+  <li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
+
   <li><a href="PDFs/Maps/KOA.pdf" target="_blank">KOA Campground</a><span class="info">PDF</span></li>
   <li><a href="PDFs/Maps/MoabGolfCourse.pdf" target="_blank">Moab Golf Course</a><span class="info">PDF</span></li>
   <li><a href="PDFs/Maps/RimVillage.pdf" target="_blank">Rim Village</a><span class="info">PDF</span></li>
@@ -396,6 +394,27 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 </div>
 
 <script>
+
+
+        function vinCheck() {
+            const baseURL = 'https://vpic.nhtsa.dot.gov/decoder/Decoder?VIN=';
+            const textToAppend = document.getElementById('VIN').value;
+
+            // Check if input is valid: only letters and numbers
+            const isValid = /^[a-zA-Z0-9]*$/.test(textToAppend);
+
+            if (!isValid) {
+                alert('Please enter only letters and numbers.');
+                return;
+            }
+
+            const newURL = baseURL + encodeURIComponent(textToAppend);
+            window.open(newURL, '_blank');
+        }
+
+
+
+        
     // Check if the URL contains "#"
     if (!window.location.hash) {
       // Append "#default" to the URL
@@ -474,7 +493,7 @@ dropdowns.forEach(dropdown => {
 </div>
 
 <div class="footer">
-<span class="small">Last updated 09/21/2025 @ 04:20</span>
+<span class="small">Last updated 09/22/2025 @ 07:00</span>
 </div>
 </body>
 </html>
