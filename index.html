@@ -1,499 +1,235 @@
 <!DOCTYPE html>
 <html>
-<title>Speed Citation Template</title>
-<head>
-
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-<link rel="manifest" href="img/site.webmanifest">
-<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-
-<link rel="stylesheet" href="style.css">
-
-<!--https://www.shecodes.io/athena#question-422123-->
-<script>
-
-function heightWeight() {
-// Get the values from the text boxes
-var meters = parseFloat(document.getElementById("heightM").value) || 0;
-var centimeters = parseFloat(document.getElementById("heightCm").value) || 0;
-
-// Convert meters to inches
-var totalInchesMeters = meters * 39.37;
-
-// Convert inches to feet and inches (part for meters)
-var feetMeters = Math.floor(totalInchesMeters / 12);
-var inchesMeters = Math.round(totalInchesMeters % 12);
-
-// Convert centimeters to inches
-var inchesCentimeters = centimeters / 2.54;
-
-// Convert inches to feet and inches (part for centimeters)
-var feetCentimeters = Math.floor(inchesCentimeters / 12);
-var inchesCentimetersRemainder = Math.round(inchesCentimeters % 12);
-
-// Display the results
-document.getElementById("heightFt-M").innerHTML = isNaN(feetMeters) ? "" : Math.round(feetMeters) + "'";
-document.getElementById("heightIn-M").innerHTML = isNaN(inchesMeters) ? "" : Math.round(inchesMeters) + '"';
-document.getElementById("heightFt-Cm").innerHTML = isNaN(feetCentimeters) ? "" : Math.round(feetCentimeters) + "'";
-document.getElementById("heightIn-Cm").innerHTML = isNaN(inchesCentimetersRemainder) ? "" : Math.round(inchesCentimetersRemainder) + '"';
-
-// Convert kilograms to pounds
-var kilograms = parseFloat(document.getElementById("weightKg").value) || 0;
-var pounds = Math.round(kilograms * 2.205);
-
-// Display the result
-document.getElementById("weightLbs").innerHTML = isNaN(pounds) ? "" : Math.round(pounds) + "lbs";
-        }
-
-function calculateDifference() {
-      // Get the values from the text boxes
-      const textBox1Value = document.getElementById('charged').value;
-      const textBox2Value = document.getElementById('zone').value;
-
-      // Calculate the difference between the values
-      const difference = Math.round(textBox1Value - textBox2Value);
-
-      // Display different text results based on the difference
-      if (difference < 0) {
-        document.getElementById('result').innerHTML = '&#8224;The Charged speed is lower than MPH Zone.<br>Check your numbers!';
-      } else if (difference >= 1 && difference <= 10) {
-        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">1-10mph</span> above the posted limit.<br>The associated fine is <span class="warning">$130, or $180 in a construction zone</span>.';
-      } else if (difference >= 11 && difference <= 15) {
-        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">11-15mph</span> above the posted limit.<br>The associated fine is <span class="warning">$160, or $230 in a construction zone</span>.';
-      } else if (difference >= 16 && difference <= 20) {
-        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">16-20mph</span> above the posted limit.<br>The associated fine is <span class="warning">$210, or $330 in a construction zone</span>.';
-      } else if (difference >= 21 && difference <= 25) {
-        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">21-25mph</span> above the posted limit.<br>The associated fine is <span class="warning">$280, or $480 in a construction zone</span>.';
-      } else if (difference >= 26 && difference <= 30) {
-        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">26-30mph</span> above the posted limit.<br>The associated fine is <span class="warning">$380, or $680 in a construction zone</span>.';
-      } else if (difference >= 31) {
-        document.getElementById('result').innerHTML = '&#8224;The charged speed is <span class="warning">greater than 30mph</span> above the posted limit.<br><span class="warning">The driver is mandated to contact the court</span>.';
-      } else {
-        document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get associated monetary fine.';
-      }
-}
-
-function doubleSpeed() {
-// Retrieve the values from the textboxes
-const number1 = document.getElementById("zone").value;
-const number2 = document.getElementById("confirmed").value;
-
-// Compare the doubled number to number2
-if (number1 == 0 && number2 == 0) {
-	document.getElementById("output").innerHTML = '';
-} else if (number2 >= (number1 * 2)) {
-  // Output text with HTML if doubledNumber is greater than number2
-  document.getElementById("output").innerHTML = 'The confirmed speed is or more than double the posted limit.';
-} else {
-  // Output text with HTML if doubledNumber is equal to number2
-  document.getElementById("output").innerHTML = '';
-}
-}
-
-
-
-    function confirmedDifference() {
-      // Get the values from the text boxes
-      const value1 = document.getElementById("confirmed").value;
-      const value2 = document.getElementById("zone").value;
-
-      // Calculate the difference
-      const difference = Math.round(value1 - value2);
-
-      // Display the difference
-	if (value1 - value2 == 0) {
-	document.getElementById("obsdiff").innerHTML = 'Enter data';
-} else {
-      document.getElementById("obsdiff").innerHTML = 'The confirmed speed is <span class="warning">' + difference + 'mph above the posted limit</span>.';
-    }
-}
-
-
-function copyr() {
-  let textarea = document.getElementById("text-radar");
-  textarea.select();
-  document.execCommand("copy");
-  textarea.setSelectionRange(0, 0);
-}
-function copyl() {
-  let textarea = document.getElementById("text-lidar");
-  textarea.select();
-  document.execCommand("copy");
-  textarea.setSelectionRange(0, 0);
-}
-
-function clearForm() {
-  update();
-  update();
-  calculateDifference();
-	confirmedDifference();
-	doubleSpeed();
-}
-
-
-</script>
-
-
-</head>
-<body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
-
-
-<div class="header">
-<span class="h1">Speeding Citation Template - Utah Code Reference</span>
-</div>
-
-<div class="content">
-<table>
-<tr>
-<td class="table-form">
-<span class="h2">Vehicle Speed Data</span>
-<form autocomplete="off">
-Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
-Confirmed/Locked: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
-&#8224;MPH Zone: <input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); confirmedDifference()" onblur="doubleSpeed()"><br>
-&#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
-<hr class="hr2"></hr>
-*Radar Locked? <input id="check-locked" class="showSecond" type="checkbox" onclick="update()"><br>
-*Moving when Locked? <input id="check-movingLocked" class="showThird" type="checkbox" onclick="update()"><br>
-*Moving Patrol Speed: <input required type="text" placeholder="--" id="patrolSpeed" name="patrolSpeed" onkeyup="update()"><br>
-
-<hr class="hr2"></hr><br>
-
-<input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
-
-Direction: <select class="citeDropdown" id="direction" name="direction" onkeyup="update()" onclick="update()">
-<option name="direction" value="--">--</option>
-<option name="direction" value="north at ">north</option>
-<option name="direction" value="south at ">south</option>
-<option name="direction" value="east at ">east</option>
-<option name="direction" value="west at ">west</option>
-</select><br>		    
-		    
-*M/S: <select class="citeDropdown" id="ms" name="ms" onkeyup="update()" onclick="update()">
-<option name="ms" value="--">--</option>
-<option name="ms" value="moving">moving</option>
-<option name="ms" value="stationary">stationary</option>
-</select><br>
-
-*F/R: <select class="citeDropdown" id="fr" name="fr" onkeyup="update()" onclick="update()">
-<option name="fr" value="--">--</option>
-<option name="fr" value="forward facing">forward</option>
-<option name="fr" value="rear facing">rear</option>
-</select><br>
-
-O/S: <select class="citeDropdown" id="os" name="os" onkeyup="update()" onclick="update()">
-<option name="os" value="--">--</option>
-<option name="os" value="opposite lane">opposite</option>
-<option name="os" value="same lane">same</option>
-</select><br>
-
-C/W: <select class="citeDropdown" id="cw" name="cw" onkeyup="update()" onclick="update()">
-<option name="cw" value="--">--</option>
-<option name="cw" value="citation">citation</option>
-<option name="cw" value="written warning">warning</option>
-</select><br>
-<hr class="hr2"></hr>
-Aware of: <input id="check-aware" class="showFourth" type="checkbox" onclick="update()"><br>
-Speed: <select class="citeDropdown" id="aspeed" name="aspeed" onkeyup="update()" onclick="update()">
-<option name="aspeed" value="--">--</option>
-<option name="aspeed" value="were aware">aware</option>
-<option name="aspeed" value="were not aware">not aware</option>
-</select><br>
-
-Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="update()" onclick="update()">
-<option name="alimit" value="--">--</option>
-<option name="alimit" value="were aware">aware</option>
-<option name="alimit" value="were not aware">not aware</option>
-</select><br>
-<input class="button" type="reset" value="Clear All Fields" onclick="clearForm()">
-</form>
-<span class="small">*Radar Only</span>
-
-<hr class="hr2"></hr>
-<hr class="hr2"></hr>
-<table>
-<tr>
-<td class="convert" colspan="3">
-<span class="h2">Convert Metric to 'Murican</span>
-</td>
-</tr>
-<tr>
-<td class="convert">Height (M)</td>
-<td class="convert">Height (Cm)</td>
-<td class="convert">Weight (Kg)</span></td>
-</tr>
-<tr>
-<td class="convert"><input required type="text" placeholder="--" id="heightM" name="heightM" onkeyup="heightWeight()"></td>
-<td class="convert"><input required type="text" placeholder="--" id="heightCm" name="heightCm" onkeyup="heightWeight()"></td>
-<td class="convert"><input required type="text" placeholder="--" id="weightKg" name="weightKg" onkeyup="heightWeight()"></td>
-</tr>
-<tr>
-<td class="convert"><span id="heightFt-M"></span><span id="heightIn-M"></span></td>
-<td class="convert"><span id="heightFt-Cm"></span><span id="heightIn-Cm"></span></td>
-<td class="convert"><span id="weightLbs"></span></td>
-</tr>
-</table>           
-</td>
-<td class="table-bs">
-
-<span class="h2">Dynamic Speed Results</span><br>
-
-<span id="obsdiff"></span><br><br>
-<!--<span id="output" class="bold-ds"></span><br>-->
-<div id="result"></div>
-<hr class="hr1"></hr>
-
-<span class="h2">Traffic Codes</span><br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1302.html" target="_blank">41-6a-1302(2)(b)</a> - Passing School Bus w/ flashing red<br>
-<hr class="hr3"></hr>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> - Traffic Light; Stop Sign Violations<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S526.html" target="_blank">41-6a-526</a> - Open Container<span class="fine">$110</span><br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations<span class="fine">$130</span><br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle<span class="fine">$160</span><br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - Yield to pedestrians; Pedestrians must yield<br>
-<ul><li><a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a></li></ul>
-<a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration<span class="fine">$50</span><br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations<span class="fine">Contact Court</span><br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html" target="_blank">41-6a-1604</a> - Head/Tail/Stop/Other Lights<br>
-<ul><li><a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html#:~:text=(7),on%20the%20roadway." target="_blank">Auxillary Lighting Exceptions</a></li></ul>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unapproved Equipment<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter12a/41-12a-S302.html" target="_blank">41-12a-302</a> - Operating Without Insurance<br>
-<a href="https://le.utah.gov/xcode/Title41/Chapter12a/41-12a-S303.2.html" target="_blank">41-12a-303.2</a> - No Proof of Insurance<br>
-<a href="https://le.utah.gov/xcode/Title72/Chapter6/72-6-S114.html" target="_blank">72-6-114</a> - Failure to Observe Traffic Barricade/Flagman
-
-
-<br><hr class="hr1"></hr>
-
-<span class="h2">Drugs & Driver's License</span><br>
-<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(f),drug%20or%20substance%3A" target="_blank">Controlled Substance</a><br>
-<ul><li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html#:~:text=(2).-,(d),4.2%2C%20or%20marijuana%2C%20is%20guilty%20of%20a%20class%20B%20misdemeanor.,-(ii)" target="_blank">Marijuana</a> (<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(aa),or%20not%2C%20including%3A" target="_blank">Defined</a>)</li>
-<li>Medical Cannabis Flow Charts -- <a href="PDFs/UMCFlowChart-Res.pdf" target="_blank">Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a><span class="info">PDFs</span></li>
-</ul>
-
-<a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
-<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V<br>
-<hr class="hr3"></hr>
-<a href ="https://le.utah.gov/xcode/Title41/Chapter8/41-8.html" target="_blank">41-8</a> - Driving by Minors (Restrictions)<br>
-<a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License<span class="fine">$50 ($40 w/ proof)</span><br>
-<a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License<span class="fine">Court Mandatory</span><br>
-<a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied<span class="fine">Court Mandatory</span>
-</td>
-
-
-
-
-<!--     RIGHT COLUMN     -->
-
-
-
-
-<td class="table-bs">
-
-<span class="h2">Domestic Violence</span><br>
-<a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br>
-<a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
-<a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S2.1.html#:~:text=(c),or%20older%20who%3A" target="_blank">77-36-2.1</a> - Intimate Partner Definition<br>
-<a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S102.html#:~:text=(7),or%20older%20who%3A" target="_blank">78B-7-102</a> - Cohabitant Definition<br>
-<a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S114.html" target="_blank">76-5-114</a> - DV in Presence of a Child<br>
-<a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.1.html" target="_blank">77-36-1.1</a> - DV Charge Enhancements<br>
-<a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S108.html#:~:text=Violation%20of%20protective%20order.,-(1)&text=Terms%20defined%20in%20Section%2076,101.5%20apply%20to%20this%20section.&text=intentionally%20or%20knowingly%20violates%20that,when%20the%20order%20was%20issued." target="_blank">76-5-108</a> - Violation of Protective Order<br>
-<a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S806.html#:~:text=(b),for%20a%20misdemeanor." target="_blank">78B-7-806</a> - Violation of JRA
-
-<br><hr class="hr1"></hr>
-
-<span class="h2">Helpful Websites</span><br>
-<a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
-<a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
-<a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">&#128274;</span><br>
-<a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">&#128274;</span><br>
-<a href="https://moab.municipal.codes/Code" target="_blank">Moab Municipal Code</a><br>
-<a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
-<a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
-<a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a><br>
-<a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
-<a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a><br>
-<a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br>
-<span class="info" style="margin-left:0px !important;">&#128274; Access via Google required</span>
-
-<hr class="hr3"></hr>
-
-<form autocomplete="off">
-    <input type="text" id="VIN" placeholder="Enter VIN" maxlength="17"/>
-    <button class="button" onclick="vinCheck()">Search VIN</button>
-    <button class="button" type="reset" value="Reset" onclick="clearForm()">Reset</button>
-</form>
-
-<hr class="hr1"></hr>
-
-<span class="h2">Local Area Maps</span><br>
-<a href="https://www.moabcity.gov/291/City-Maps" target="_blank">Moab City Maps</a>
-<ul>
-  <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Viewer</a></li>
-  <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning</a></li>
-  <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain</a></li>
-
-  <li><a href="PDFs/Maps/CinemaCourts.pdf" target="_blank">Cinema Courts</a><span class="info">PDF</span></li>
-  <li><a href="PDFs/Maps/GrandOasis.pdf" target="_blank">Grand Oasis</a><span class="info">PDF</span></li>
-  <li><a href="PDFs/Maps/MoabSpringsRanch.pdf" target="_blank">Moab Springs Ranch</a><span class="info">PDF</span></li>
-  <li><a href="PDFs/Maps/VillageCamp.pdf" target="_blank">Village Camp</a><span class="info">PDF</span></li>
-</ul>
-<br>
-<a href="https://grandcountyutah.net/689/Maps" target="_blank">Grand County Maps</a>
-<ul>
-  <li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
-  <li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
-
-  <li><a href="PDFs/Maps/KOA.pdf" target="_blank">KOA Campground</a><span class="info">PDF</span></li>
-  <li><a href="PDFs/Maps/MoabGolfCourse.pdf" target="_blank">Moab Golf Course</a><span class="info">PDF</span></li>
-  <li><a href="PDFs/Maps/RimVillage.pdf" target="_blank">Rim Village</a><span class="info">PDF</span></li>
-</ul>
-<br>
-<a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" target="_blank">UDOT Maps (Mile markers)</a>
-<ul>
-<li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=f2ee88ece6b6473ca65edda6cc113ba2" target="_blank">Physical Location of Reference Post</a></li>
-<li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=768b285ed14e40e5853f45963f2d137a" target="_blank">Mile Point Linear Measure</a></li>
-</ul>
-
-</td>
-</tr>
-</table>
-
-<hr class="bottom"></hr>
-
-<div class="div-left">
-    <textarea class="radar1" style="display:none;"></textarea>
-    <textarea class="radar2" style="display:none;"></textarea>
-    <textarea class="radar3" style="display:none;"></textarea>
-    <textarea class="radar4" style="display:none;"></textarea>
-<textarea class="radar" id="text-radar" rows="11" cols="69" readonly></textarea>
-<div id="r-copied">Radar Copied to Clipboard</div>
-<br>
-<button class="button" onclick="copyr()" id="r-button">Copy Radar</button>
-</div>
-
-
-<div class="div-right">
-    <textarea class="lidar1" style="display:none;"></textarea>
-    <textarea class="lidar2" style="display:none;"></textarea>
-    <textarea class="lidar3" style="display:none;"></textarea>
-<textarea class="lidar" id="text-lidar" rows="11" cols="69" readonly></textarea>
-<div id="l-copied">LiDAR Copied to Clipboard</div>
-<br>
-<button class="button" onclick="copyl()" id="l-button">Copy LiDAR</button>
-</div>
-
-<script>
-
-
-        function vinCheck() {
-            const baseURL = 'https://vpic.nhtsa.dot.gov/decoder/Decoder?VIN=';
-            const textToAppend = document.getElementById('VIN').value;
-
-            // Check if input is valid: only letters and numbers
-            const isValid = /^[a-zA-Z0-9]*$/.test(textToAppend);
-
-            if (!isValid) {
-                alert('Please enter only letters and numbers.');
-                return;
-            }
-
-            const newURL = baseURL + encodeURIComponent(textToAppend);
-            window.open(newURL, '_blank');
-        }
-
-
-
-        
-    // Check if the URL contains "#"
-    if (!window.location.hash) {
-      // Append "#default" to the URL
-      window.location.href += "#default";
-    }
-    // Array of words to check for in the URL
-    var wordsToCheck = ["default", "noah", "calvin", "schadie", "dulce", "jason", "nate"];
-
-    // Iterate through the array
-    for (var i = 0; i < wordsToCheck.length; i++) {
-      var word = wordsToCheck[i];
-
-      // Check if the URL contains the word preceded by "#"
-      if (window.location.href.includes("#" + word)) {
-        // Create a new script element
-        var script = document.createElement("script");
-
-        // Set the src attribute to the corresponding JavaScript file
-        script.src = "" + word + ".js";
-
-        // Append the script element to the HTML document
-        document.body.appendChild(script);
-      }
-    }
-
-
-
-
-const dropdowns = document.querySelectorAll('.citeDropdown, .showThird');
-
-dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('change', function() {
-        if (this.value === '--') {
-            this.style.backgroundColor = '#000';
-            this.style.color = '#FFF';
-        } else {
-            this.style.backgroundColor = '#333';
-            this.style.color = '#FFF';
-            this.style.borderColor = '#00caff';
-        }
-    });
-});
-
-        document.getElementById("r-button").addEventListener("click", function() {
-            const message = document.getElementById("r-copied");
-            message.style.display = "block"; // Show the message
-            setTimeout(function() {
-                message.style.opacity = 1; // Fade in
-            }, 10); // Small timeout to ensure the display change is registered
-
-            setTimeout(function() {
-                message.style.opacity = 0; // Fade out
-            }, 7000); // Keep it visible for 3 seconds
-            setTimeout(function() {
-                message.style.display = "none"; // Hide the message after fade out
-            }, 7500); // Hide it after fade out is complete
-        });
-
-
-        document.getElementById("l-button").addEventListener("click", function() {
-            const message = document.getElementById("l-copied");
-            message.style.display = "block"; // Show the message
-            setTimeout(function() {
-                message.style.opacity = 1; // Fade in
-            }, 10); // Small timeout to ensure the display change is registered
-
-            setTimeout(function() {
-                message.style.opacity = 0; // Fade out
-            }, 7000); // Keep it visible for 3 seconds
-            setTimeout(function() {
-                message.style.display = "none"; // Hide the message after fade out
-            }, 7500); // Hide it after fade out is complete
-        });
-
-</script>
-</div>
-
-<div class="footer">
-<span class="small">Last updated 09/22/2025 @ 07:00</span>
-</div>
-</body>
+  <head>
+    <title>Speed Citation Template</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="style.css">
+    <!--https://www.shecodes.io/athena#question-422123-->
+  </head>
+  <body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
+    <div class="header">
+      <span class="h1">Speeding Citation Template - Utah Code Reference</span>
+    </div>
+    <div class="content">
+      <table>
+        <tr>
+          <td class="table-form">
+            <span class="h2">Vehicle Speed Data</span>
+            <form autocomplete="off">
+              Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
+              Confirmed/Locked: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
+              &#8224;MPH Zone: <input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); confirmedDifference()" onblur="doubleSpeed()"><br>
+              &#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
+              <hr class="hr2"></hr>
+              *Radar Locked? <input id="check-locked" class="showSecond" type="checkbox" onclick="update()"><br>
+              *Moving when Locked? <input id="check-movingLocked" class="showThird" type="checkbox" onclick="update()"><br>
+              *Moving Patrol Speed: <input required type="text" placeholder="--" id="patrolSpeed" name="patrolSpeed" onkeyup="update()"><br>
+              <hr class="hr2"></hr><br>
+              <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
+              Direction: <select class="citeDropdown" id="direction" name="direction" onkeyup="update()" onclick="update()">
+                <option name="direction" value="--">--</option>
+                <option name="direction" value="north at ">north</option>
+                <option name="direction" value="south at ">south</option>
+                <option name="direction" value="east at ">east</option>
+                <option name="direction" value="west at ">west</option>
+              </select><br>
+              *M/S: <select class="citeDropdown" id="ms" name="ms" onkeyup="update()" onclick="update()">
+                <option name="ms" value="--">--</option>
+                <option name="ms" value="moving">moving</option>
+                <option name="ms" value="stationary">stationary</option>
+              </select><br>
+              *F/R: <select class="citeDropdown" id="fr" name="fr" onkeyup="update()" onclick="update()">
+                <option name="fr" value="--">--</option>
+                <option name="fr" value="forward facing">forward</option>
+                <option name="fr" value="rear facing">rear</option>
+              </select><br>
+              O/S: <select class="citeDropdown" id="os" name="os" onkeyup="update()" onclick="update()">
+                <option name="os" value="--">--</option>
+                <option name="os" value="opposite lane">opposite</option>
+                <option name="os" value="same lane">same</option>
+              </select><br>
+              C/W: <select class="citeDropdown" id="cw" name="cw" onkeyup="update()" onclick="update()">
+                <option name="cw" value="--">--</option>
+                <option name="cw" value="citation">citation</option>
+                <option name="cw" value="written warning">warning</option>
+              </select><br>
+              <hr class="hr2"></hr>
+              Aware of: <input id="check-aware" class="showFourth" type="checkbox" onclick="update()"><br>
+              Speed: <select class="citeDropdown" id="aspeed" name="aspeed" onkeyup="update()" onclick="update()">
+                <option name="aspeed" value="--">--</option>
+                <option name="aspeed" value="were aware">aware</option>
+                <option name="aspeed" value="were not aware">not aware</option>
+              </select><br>
+              Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="update()" onclick="update()">
+                <option name="alimit" value="--">--</option>
+                <option name="alimit" value="were aware">aware</option>
+                <option name="alimit" value="were not aware">not aware</option>
+              </select><br>
+              <input class="button" type="reset" value="Clear All Fields" onclick="clearForm()">
+            </form>
+            <span class="small">*Radar Only</span>
+            <hr class="hr2"></hr>
+            <hr class="hr2"></hr>
+            <table>
+              <tr>
+                <td class="convert" colspan="3">
+                  <span class="h2">Convert Metric to 'Murican</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="convert">Height (M)</td>
+                <td class="convert">Height (Cm)</td>
+                <td class="convert">Weight (Kg)</td>
+              </tr>
+              <tr>
+                <td class="convert"><input required type="text" placeholder="--" id="heightM" name="heightM" onkeyup="heightWeight()"></td>
+                <td class="convert"><input required type="text" placeholder="--" id="heightCm" name="heightCm" onkeyup="heightWeight()"></td>
+                <td class="convert"><input required type="text" placeholder="--" id="weightKg" name="weightKg" onkeyup="heightWeight()"></td>
+              </tr>
+              <tr>
+                <td class="convert"><span id="heightFt-M"></span><span id="heightIn-M"></span></td>
+                <td class="convert"><span id="heightFt-Cm"></span><span id="heightIn-Cm"></span></td>
+                <td class="convert"><span id="weightLbs"></span></td>
+              </tr>
+            </table>
+          </td>
+          <td class="table-bs">
+            <span class="h2">Dynamic Speed Results</span><br>
+            <span id="obsdiff"></span><br><br>
+            <div id="result"></div>
+            <hr class="hr1"></hr>
+            <span class="h2">Traffic Codes</span><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1302.html" target="_blank">41-6a-1302(2)(b)</a> - Passing School Bus w/ flashing red<br>
+            <hr class="hr3"></hr>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> - Traffic Light; Stop Sign Violations<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S526.html" target="_blank">41-6a-526</a> - Open Container<span class="fine">$110</span><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations<span class="fine">$130</span><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle<span class="fine">$160</span><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - Yield to pedestrians; Pedestrians must yield<br>
+            <ul>
+              <li><a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a></li>
+            </ul>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration<span class="fine">$50</span><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations<span class="fine">Contact Court</span><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html" target="_blank">41-6a-1604</a> - Head/Tail/Stop/Other Lights<br>
+            <ul>
+              <li><a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html#:~:text=(7),on%20the%20roadway." target="_blank">Auxillary Lighting Exceptions</a></li>
+            </ul>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unapproved Equipment<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter12a/41-12a-S302.html" target="_blank">41-12a-302</a> - Operating Without Insurance<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter12a/41-12a-S303.2.html" target="_blank">41-12a-303.2</a> - No Proof of Insurance<br>
+            <a href="https://le.utah.gov/xcode/Title72/Chapter6/72-6-S114.html" target="_blank">72-6-114</a> - Failure to Observe Traffic Barricade/Flagman<br>
+            <hr class="hr1"></hr>
+            <span class="h2">Drugs & Driver's License</span><br>
+            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(f),drug%20or%20substance%3A" target="_blank">Controlled Substance</a> Schedule I-V<br>
+            <ul>
+              <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html#:~:text=(2).-,(d),4.2%2C%20or%20marijuana%2C%20is%20guilty%20of%20a%20class%20B%20misdemeanor.,-(ii)" target="_blank">Marijuana</a> (<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(aa),or%20not%2C%20including%3A" target="_blank">Definition</a>)</li>
+              <li>Medical Cannabis Flow Charts -- <a href="PDFs/UMCFlowChart-Res.pdf" target="_blank">Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a><span class="info">PDFs</span></li>
+            </ul>
+            <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
+            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V<br>
+            <hr class="hr3"></hr>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter8/41-8.html" target="_blank">41-8</a> - Driving by Minors (Restrictions)<br>
+            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License<span class="fine">$50 ($40 w/ proof)</span><br>
+            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License<span class="fine">Court Mandatory</span><br>
+            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied<span class="fine">Court Mandatory</span>
+          </td>
+          <td class="table-bs">
+            <span class="h2">Domestic Violence</span><br>
+            <a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br>
+            <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
+            <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S2.1.html#:~:text=(c),or%20older%20who%3A" target="_blank">77-36-2.1</a> - Intimate Partner Definition<br>
+            <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S102.html#:~:text=(7),or%20older%20who%3A" target="_blank">78B-7-102</a> - Cohabitant Definition<br>
+            <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S114.html" target="_blank">76-5-114</a> - DV in Presence of a Child<br>
+            <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.1.html" target="_blank">77-36-1.1</a> - DV Charge Enhancements<br>
+            <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S108.html#:~:text=Violation%20of%20protective%20order.,-(1)&text=Terms%20defined%20in%20Section%2076,101.5%20apply%20to%20this%20section.&text=intentionally%20or%20knowingly%20violates%20that,when%20the%20order%20was%20issued." target="_blank">76-5-108</a> - Violation of Protective Order<br>
+            <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S806.html#:~:text=(b),for%20a%20misdemeanor." target="_blank">78B-7-806</a> - Violation of JRA<br>
+            <hr class="hr1"></hr>
+            <span class="h2">Helpful Resources</span><br>
+            <form autocomplete="off">
+              <input type="text" id="VIN" placeholder="Search VIN" maxlength="17"/>
+              <button class="button" onclick="vinCheck()">GO!</button>
+            </form>
+            <hr class="hr3"></hr>
+            <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
+            <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
+            <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">&#128274;</span><br>
+            <a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">&#128274;</span><br>
+            <a href="https://moab.municipal.codes/Code" target="_blank">Moab Municipal Code</a><br>
+            <a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
+            <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
+            <a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a><br>
+            <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
+            <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a><br>
+            <a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br>
+            <span class="info" style="margin-left:0px !important;">&#128274; Access via Google required</span><br>
+            <hr class="hr1"></hr>
+            <span class="h2">Local Area Maps</span><br>
+            <a href="https://www.moabcity.gov/291/City-Maps" target="_blank">Moab City Maps</a>
+            <ul>
+              <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Viewer</a></li>
+              <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning</a></li>
+              <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain</a></li>
+              <li><a href="PDFs/Maps/CinemaCourts.pdf" target="_blank">Cinema Courts</a><span class="info">PDF</span></li>
+              <li><a href="PDFs/Maps/GrandOasis.pdf" target="_blank">Grand Oasis</a><span class="info">PDF</span></li>
+              <li><a href="PDFs/Maps/MoabSpringsRanch.pdf" target="_blank">Moab Springs Ranch</a><span class="info">PDF</span></li>
+              <li><a href="PDFs/Maps/VillageCamp.pdf" target="_blank">Village Camp</a><span class="info">PDF</span></li>
+            </ul>
+            <br>
+            <a href="https://grandcountyutah.net/689/Maps" target="_blank">Grand County Maps</a>
+            <ul>
+              <li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
+              <li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
+              <li><a href="PDFs/Maps/KOA.pdf" target="_blank">KOA Campground</a><span class="info">PDF</span></li>
+              <li><a href="PDFs/Maps/MoabGolfCourse.pdf" target="_blank">Moab Golf Course</a><span class="info">PDF</span></li>
+              <li><a href="PDFs/Maps/RimVillage.pdf" target="_blank">Rim Village</a><span class="info">PDF</span></li>
+            </ul>
+            <br>
+            <a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" target="_blank">UDOT Maps (Mile markers)</a>
+            <ul>
+              <li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=f2ee88ece6b6473ca65edda6cc113ba2" target="_blank">Physical Location of Reference Post</a></li>
+              <li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=768b285ed14e40e5853f45963f2d137a" target="_blank">Mile Point Linear Measure</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      <hr class="bottom"></hr>
+      <div class="div-left">
+        <textarea class="radar1" style="display:none;"></textarea>
+        <textarea class="radar2" style="display:none;"></textarea>
+        <textarea class="radar3" style="display:none;"></textarea>
+        <textarea class="radar4" style="display:none;"></textarea>
+        <textarea class="radar" id="text-radar" rows="11" cols="69" readonly></textarea>
+        <div id="r-copied">Radar Copied to Clipboard</div>
+        <br>
+        <button class="button" onclick="copyr()" id="r-button">Copy Radar</button>
+      </div>
+      <div class="div-right">
+        <textarea class="lidar1" style="display:none;"></textarea>
+        <textarea class="lidar2" style="display:none;"></textarea>
+        <textarea class="lidar3" style="display:none;"></textarea>
+        <textarea class="lidar" id="text-lidar" rows="11" cols="69" readonly></textarea>
+        <div id="l-copied">LiDAR Copied to Clipboard</div>
+        <br>
+        <button class="button" onclick="copyl()" id="l-button">Copy LiDAR</button>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="small">Last updated 09/26/2025 @ 23:00</span>
+    </div>
+    <script src="mainScripting.js"></script>
+  </body>
 </html>
