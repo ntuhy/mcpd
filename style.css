@@ -23,7 +23,7 @@ body {
 }
 
 .h2 {
-  font-size: 20pt;
+  font-size: 18.5pt;
   font-weight: bold;
   color: #00caff;
   text-shadow: 5px 5px 5px #000;
@@ -288,11 +288,11 @@ input:focus::placeholder {
   width: inherit !important;
   color: #FFF;
   background-color: #00ccff69;
-  border: 2px solid #00caff !important;
+  border: 3px solid #00caff !important;
   border-radius: 5px;
   font-size: 11pt;
   font-weight: bold;
-  padding: 5px;
+  padding: 4.5px;
   margin-top: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -306,6 +306,25 @@ input:focus::placeholder {
 
 .button:focus {
   background-color: #111 !important;
+}
+
+.clearButton {
+  width: inherit !important;
+  color: #cb3d3d;
+  background-color: #66666669;
+  border: 3px solid #cb3d3d !important;
+  border-radius: 5px;
+  font-size: 11pt;
+  font-weight: bold;
+  padding: 4.5px;
+  margin-left:5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-shadow: 2px 2px 3px #000;
+}
+.clearButton:hover {
+  background-color:#111;
 }
 
 input:hover, select:hover {

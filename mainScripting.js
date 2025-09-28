@@ -200,3 +200,7 @@ document.getElementById("l-button").addEventListener("click", function() {
     message.style.display = "none"; // Hide the message after fade out
   }, 7500); // Hide it after fade out is complete
 });
+
+function clearInput() {
+  document.getElementById("VIN").value = '';
+}

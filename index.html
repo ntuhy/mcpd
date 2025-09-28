@@ -71,7 +71,7 @@
                 <option name="alimit" value="were aware">aware</option>
                 <option name="alimit" value="were not aware">not aware</option>
               </select><br>
-              <input class="button" type="reset" value="Clear All Fields" onclick="clearForm()">
+              <button class="clearButton" onclick="clearForm()">Clear All Fields</button>
             </form>
             <span class="small">*Radar Only</span>
             <hr class="hr2"></hr>
@@ -101,6 +101,7 @@
           </td>
           <td class="table-bs">
             <span class="h2">Dynamic Speed Results</span><br>
+          
             <span id="obsdiff"></span><br><br>
             <div id="result"></div>
             <hr class="hr1"></hr>
@@ -161,8 +162,9 @@
             <span class="h2">Helpful Resources</span><br>
             <form autocomplete="off">
               <input type="text" id="VIN" placeholder="Search VIN" maxlength="17"/>
-              <button class="button" onclick="vinCheck()">GO!</button>
+              <button class="button" onclick="vinCheck()">GO!</button><button class="clearButton" onclick="clearInput()">X</button>
             </form>
+            
             <hr class="hr3"></hr>
             <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
             <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
