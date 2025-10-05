@@ -71,7 +71,7 @@
                 <option name="alimit" value="were aware">aware</option>
                 <option name="alimit" value="were not aware">not aware</option>
               </select><br>
-              <button class="clearButton" onclick="clearForm()">Clear All Fields</button>
+              <button class="clearButton" type="reset" onclick="update(); calculateDifference(); confirmedDifference()">Clear All Fields</button>
             </form>
             <span class="small">*Radar Only</span>
             <hr class="hr2"></hr>
@@ -100,11 +100,14 @@
             </table>
           </td>
           <td class="table-bs">
+            <div class="p">
             <span class="h2">Dynamic Speed Results</span><br>
           
             <span id="obsdiff"></span><br><br>
             <div id="result"></div>
-            <hr class="hr1"></hr>
+            </div>
+            <!--<hr class="hr1"></hr>-->
+            <div class="p">
             <span class="h2">Traffic Codes</span><br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
@@ -133,9 +136,11 @@
             <a href="https://le.utah.gov/xcode/Title41/Chapter12a/41-12a-S302.html" target="_blank">41-12a-302</a> - Operating Without Insurance<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter12a/41-12a-S303.2.html" target="_blank">41-12a-303.2</a> - No Proof of Insurance<br>
             <a href="https://le.utah.gov/xcode/Title72/Chapter6/72-6-S114.html" target="_blank">72-6-114</a> - Failure to Observe Traffic Barricade/Flagman<br>
-            <hr class="hr1"></hr>
+            </div>
+            
+            <div class="p">
             <span class="h2">Drugs & Driver's License</span><br>
-            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(f),drug%20or%20substance%3A" target="_blank">Controlled Substance</a> Schedule I-V<br>
+            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(f),drug%20or%20substance%3A" target="_blank">Controlled Substance</a> (Schedule I-V)<br>
             <ul>
               <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html#:~:text=(2).-,(d),4.2%2C%20or%20marijuana%2C%20is%20guilty%20of%20a%20class%20B%20misdemeanor.,-(ii)" target="_blank">Marijuana</a> (<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(aa),or%20not%2C%20including%3A" target="_blank">Definition</a>)</li>
               <li>Medical Cannabis Flow Charts -- <a href="PDFs/UMCFlowChart-Res.pdf" target="_blank">Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a><span class="info">PDFs</span></li>
@@ -147,8 +152,10 @@
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License<span class="fine">$50 ($40 w/ proof)</span><br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License<span class="fine">Court Mandatory</span><br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied<span class="fine">Court Mandatory</span>
+            </div>
           </td>
           <td class="table-bs">
+            <div class="p">
             <span class="h2">Domestic Violence</span><br>
             <a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br>
             <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
@@ -157,54 +164,64 @@
             <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S114.html" target="_blank">76-5-114</a> - DV in Presence of a Child<br>
             <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.1.html" target="_blank">77-36-1.1</a> - DV Charge Enhancements<br>
             <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S108.html#:~:text=Violation%20of%20protective%20order.,-(1)&text=Terms%20defined%20in%20Section%2076,101.5%20apply%20to%20this%20section.&text=intentionally%20or%20knowingly%20violates%20that,when%20the%20order%20was%20issued." target="_blank">76-5-108</a> - Violation of Protective Order<br>
-            <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S806.html#:~:text=(b),for%20a%20misdemeanor." target="_blank">78B-7-806</a> - Violation of JRA<br>
-            <hr class="hr1"></hr>
+            <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S806.html#:~:text=(b),for%20a%20misdemeanor." target="_blank">78B-7-806</a> - Violation of JRA
+            </div>
+            <div class="p">
             <span class="h2">Helpful Resources</span><br>
             <form autocomplete="off">
               <input type="text" id="VIN" placeholder="Search VIN" maxlength="17"/>
-              <button class="button" onclick="vinCheck()">GO!</button><button class="clearButton" onclick="clearInput()">X</button>
+              <button class="button" onclick="vinCheck()">GO!</button><button class="clearButton" type="reset">X</button>
             </form>
             
-            <hr class="hr3"></hr>
             <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
             <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
-            <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">&#128274;</span><br>
-            <a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">&#128274;</span><br>
             <a href="https://moab.municipal.codes/Code" target="_blank">Moab Municipal Code</a><br>
             <a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
             <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
             <a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a><br>
             <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
             <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a><br>
-            <a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br>
+            <hr class="hr3" />
             <span class="info" style="margin-left:0px !important;">&#128274; Access via Google required</span><br>
-            <hr class="hr1"></hr>
+            <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">&#128274;</span><br>
+            <a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">&#128274;</span><br>
+            <a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br>
+            </div>
+
+            
+            <div class="p">
             <span class="h2">Local Area Maps</span><br>
-            <a href="https://www.moabcity.gov/291/City-Maps" target="_blank">Moab City Maps</a>
+            <span class="h3">City of Moab</span><br>
             <ul>
+              <li><a href="https://www.moabcity.gov/291/City-Maps" target="_blank">List of All City Maps</a></li>
               <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Viewer</a></li>
               <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning</a></li>
               <li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain</a></li>
+              <hr class="hr3" />
               <li><a href="PDFs/Maps/CinemaCourts.pdf" target="_blank">Cinema Courts</a><span class="info">PDF</span></li>
               <li><a href="PDFs/Maps/GrandOasis.pdf" target="_blank">Grand Oasis</a><span class="info">PDF</span></li>
               <li><a href="PDFs/Maps/MoabSpringsRanch.pdf" target="_blank">Moab Springs Ranch</a><span class="info">PDF</span></li>
               <li><a href="PDFs/Maps/VillageCamp.pdf" target="_blank">Village Camp</a><span class="info">PDF</span></li>
             </ul>
             <br>
-            <a href="https://grandcountyutah.net/689/Maps" target="_blank">Grand County Maps</a>
+            <span class="h3">Grand County</span>
             <ul>
+              <li><a href="https://grandcountyutah.net/689/Maps" target="_blank">List of All County Maps</a></li>
               <li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
               <li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
+              <hr class="hr3" />
               <li><a href="PDFs/Maps/KOA.pdf" target="_blank">KOA Campground</a><span class="info">PDF</span></li>
               <li><a href="PDFs/Maps/MoabGolfCourse.pdf" target="_blank">Moab Golf Course</a><span class="info">PDF</span></li>
               <li><a href="PDFs/Maps/RimVillage.pdf" target="_blank">Rim Village</a><span class="info">PDF</span></li>
             </ul>
             <br>
-            <a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" target="_blank">UDOT Maps (Mile markers)</a>
+            <span class="h3">State of Utah</span>
             <ul>
+              <li><a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" target="_blank">List of All UDOT Maps</a></li>
               <li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=f2ee88ece6b6473ca65edda6cc113ba2" target="_blank">Physical Location of Reference Post</a></li>
               <li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=768b285ed14e40e5853f45963f2d137a" target="_blank">Mile Point Linear Measure</a></li>
             </ul>
+            </div>
           </td>
         </tr>
       </table>
@@ -230,7 +247,7 @@
       </div>
     </div>
     <div class="footer">
-      <span class="small">Last updated 09/26/2025 @ 23:00</span>
+      <span class="small">Last updated 10/05/2025 @ 00:30</span>
     </div>
     <script src="mainScripting.js"></script>
   </body>

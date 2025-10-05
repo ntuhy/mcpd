@@ -106,14 +106,6 @@ function copyl() {
   textarea.setSelectionRange(0, 0);
 }
 
-function clearForm() {
-  update();
-  update();
-  calculateDifference();
-  confirmedDifference();
-  doubleSpeed();
-}
-
 function vinCheck() {
   const baseURL = 'https://vpic.nhtsa.dot.gov/decoder/Decoder?VIN=';
   const textToAppend = document.getElementById('VIN').value;
@@ -200,7 +192,3 @@ document.getElementById("l-button").addEventListener("click", function() {
     message.style.display = "none"; // Hide the message after fade out
   }, 7500); // Hide it after fade out is complete
 });
-
-function clearInput() {
-  document.getElementById("VIN").value = '';
-}
