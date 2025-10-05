@@ -26,6 +26,12 @@ body {
 
 .h2 {
   font-size: 18.5pt;
+  border-bottom:3px solid #55555569;
+  border-radius:3px;
+  width:100%;
+  display:inline-block;
+  margin-bottom:5px;
+  box-shadow: -3px 3px 3px #00000069;
 }
 
 .h3 {
