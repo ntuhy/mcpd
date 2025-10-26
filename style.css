@@ -19,6 +19,8 @@ body {
   margin-top: 70px;
   display: inline-block;
   padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+  border: 3px solid #52525290;
   font-weight:bold;
   width:inherit;
   cursor: pointer;
@@ -31,13 +33,17 @@ body {
 }
 
 .tab:hover {
-  background-color:#222;
+  background-color:#222222da;
   color:#fff;
+  border-radius: 8px;
+  border: 3px solid #ffffff88;
 }
 
 .tab.active {
   background-color: #222;
   color: white;
+  border-radius: 8px;
+  border: 3px solid #fff;
 }
 
 .tab-content {
