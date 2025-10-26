@@ -1,3 +1,26 @@
+function showContent(tabId, tabElement) {
+  // Hide all tab contents
+  const contents = document.querySelectorAll('.tab-content');
+  contents.forEach(content => {
+    content.classList.remove('active');
+    content.style.display = 'none'; // Set to none immediately
+  });
+
+  // Show the selected tab content
+  const selectedContent = document.getElementById(tabId);
+  selectedContent.style.display = 'block'; // Show the content before fading
+  // Trigger reflow to restart the CSS animation
+  void selectedContent.offsetWidth;
+  selectedContent.classList.add('active'); // Add the active class for the fade effect
+
+  // Remove active class from all tabs and add to the selected tab
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.classList.remove('active');
+  });
+  tabElement.classList.add('active');
+}
+
 function heightWeight() {
   // Get the values from the text boxes
   var meters = parseFloat(document.getElementById("heightM").value) || 0;

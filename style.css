@@ -15,22 +15,65 @@ body {
   min-height: 100vh;
 }
 
+.tab {
+  margin-top: 70px;
+  display: inline-block;
+  padding: 5px 15px 5px 15px;
+  font-weight:bold;
+  width:inherit;
+  cursor: pointer;
+  background-color: #2222229d;
+  color:#ffffffa4;
+  margin-right: 5px;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+  text-shadow: 2px 2px 3px #000;
+}
+
+.tab:hover {
+  background-color:#222;
+  color:#fff;
+}
+
+.tab.active {
+  background-color: #222;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  border: none;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  height: 0;
+  overflow: hidden;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  height: auto;
+  margin-bottom: 45px;
+}
+
 .h1, .h2, .h3 {
   font-weight: bold;
   color: #00caff;
   text-shadow: 5px 5px 5px #000;
 }
+
 .h1 {
   font-size: 30pt;
 }
 
 .h2 {
   font-size: 18.5pt;
-  border-bottom:3px solid #55555569;
-  border-radius:3px;
-  width:100%;
-  display:inline-block;
-  margin-bottom:5px;
+  border-bottom: 3px solid #55555569;
+  border-radius: 3px;
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 5px;
   box-shadow: -3px 3px 3px #00000069;
 }
 
@@ -67,7 +110,6 @@ body {
 }
 
 .content {
-  margin-top: 65px;
   margin-bottom: 45px;
 }
 
@@ -118,13 +160,22 @@ a:hover {
   line-height: 1.5;
 }
 
+.table-wide {
+  padding-left: 10px;
+  text-align: center;
+  vertical-align: top;
+  text-wrap: balance;
+  width: 40%;
+  line-height: 1.5;
+}
+
 .p {
-  background-color:#222222af;
-  border-radius:8px;
-  border:3px solid #00caff90;
+  background-color: #222222d7;
+  border-radius: 8px;
+  border: 3px solid #00caff90;
   box-shadow: inset 0 0 25px 10px #000;
-  padding:0 10px 10px 10px;
-  margin-bottom:15px;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 15px;
 }
 
 .convert {
@@ -220,20 +271,15 @@ hr.hr1 {
 
 hr.hr2, hr.hr3 {
   border: none;
-  
   border-radius: 3px;
   display: block !important;
   line-break: strict;
   clear: both;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 1.0);
 }
+
 hr.hr2 {
-border-top: 2pt solid #333;
-}
-hr.hr3 {
-border-top: 2pt solid #FF6B00;
-}
-hr.hr2 {
+  border-top: 2pt solid #333;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 25%;
@@ -243,6 +289,7 @@ hr.hr2 {
 }
 
 hr.hr3 {
+  border-top: 2pt solid #FF6B00;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 40%;
@@ -340,14 +387,15 @@ input:focus::placeholder {
   font-size: 11pt;
   font-weight: bold;
   padding: 4.5px;
-  margin-left:5px;
+  margin-left: 5px;
   margin-top: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
   text-shadow: 2px 2px 3px #000;
 }
+
 .clearButton:hover {
-  background-color:#111;
+  background-color: #111;
 }
 
 input:hover, select:hover {
