@@ -1,25 +1,35 @@
-function showContent(tabId, tabElement) {
-  // Hide all tab contents
-  const contents = document.querySelectorAll('.tab-content');
-  contents.forEach(content => {
-    content.classList.remove('active');
-    content.style.display = 'none'; // Set to none immediately
-  });
+    function showContent(tabId, tabElement) {
+        // Get all tab contents
+        const contents = document.querySelectorAll('.tab-content');
+        const activeContent = document.querySelector('.tab-content.active');
 
-  // Show the selected tab content
-  const selectedContent = document.getElementById(tabId);
-  selectedContent.style.display = 'block'; // Show the content before fading
-  // Trigger reflow to restart the CSS animation
-  void selectedContent.offsetWidth;
-  selectedContent.classList.add('active'); // Add the active class for the fade effect
+        // Check if the clicked tab is already active
+        if (activeContent.id === tabId) {
+            return; // If active, do nothing
+        }
 
-  // Remove active class from all tabs and add to the selected tab
-  const tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => {
-    tab.classList.remove('active');
-  });
-  tabElement.classList.add('active');
-}
+        // Fade out the currently active content
+        activeContent.style.opacity = '0'; // Start fading out
+        setTimeout(() => {
+            activeContent.classList.remove('active');
+            activeContent.style.display = 'none'; // Hide after fade out completes
+
+            // Show the selected tab content
+            const selectedContent = document.getElementById(tabId);
+            selectedContent.style.display = 'block'; // Show the content first
+            // Trigger reflow to restart the CSS animation
+            void selectedContent.offsetWidth; 
+            selectedContent.classList.add('active'); // Add to active for fade-in
+            selectedContent.style.opacity = '1'; // Fade in the new content
+        }, 175); // Match the timeout with the fade out duration
+
+        // Remove active class from all tabs and add to the selected tab
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+        tabElement.classList.add('active');
+    }
 
 function heightWeight() {
   // Get the values from the text boxes

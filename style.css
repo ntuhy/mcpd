@@ -19,7 +19,7 @@ body {
   margin-top: 70px;
   display: inline-block;
   padding: 5px 15px 5px 15px;
-  border-radius: 8px;
+  border-radius: 3px;
   border: 3px solid #52525290;
   font-weight:bold;
   width:inherit;
@@ -28,21 +28,21 @@ body {
   color:#ffffffa4;
   margin-right: 5px;
   border-radius: 5px;
-  transition: all 0.5s ease;
+  transition: all 0.3s linear;
   text-shadow: 2px 2px 3px #000;
 }
 
 .tab:hover {
   background-color:#222222da;
   color:#fff;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 3px solid #ffffff88;
 }
 
 .tab.active {
   background-color: #222;
   color: white;
-  border-radius: 8px;
+  border-radius: 9px;
   border: 3px solid #fff;
 }
 
@@ -51,7 +51,7 @@ body {
   border: none;
   margin-top: 10px;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s linear;
   height: 0;
   overflow: hidden;
 }
@@ -130,7 +130,7 @@ a {
   padding-right: 5px;
   font-weight: bold;
   text-shadow: 2px 2px 3px #000;
-  transition: all 0.3s ease;
+  transition: all 0.3s linear;
 }
 
 a:hover {
@@ -328,7 +328,7 @@ ul {
 input {
   width: 45px !important;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.3s linear;
 }
 
 input[type="text"]:invalid {
@@ -370,7 +370,7 @@ input:focus::placeholder {
   font-weight: bold;
   padding: 4.5px;
   margin-top: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.3s linear;
   cursor: pointer;
   text-shadow: 2px 2px 3px #000;
 }
@@ -395,7 +395,7 @@ input:focus::placeholder {
   padding: 4.5px;
   margin-left: 5px;
   margin-top: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.3s linear;
   cursor: pointer;
   text-shadow: 2px 2px 3px #000;
 }
@@ -411,7 +411,7 @@ input:hover, select:hover {
 select {
   width: 110px;
   background-color: #000;
-  transition: all 0.3s ease;
+  transition: all 0.3s linear;
 }
 
 input, select {
