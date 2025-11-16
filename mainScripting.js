@@ -74,19 +74,19 @@ function calculateDifference() {
 
   // Display different text results based on the difference
   if (difference < 0) {
-    document.getElementById('result').innerHTML = '&#8224;The Charged speed is lower than MPH Zone.<br>Check your numbers!';
+    document.getElementById('result').innerHTML = '&#8224;The Charged speed is lower than MPH Zone. Check your numbers!';
   } else if (difference >= 1 && difference <= 10) {
-    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">1-10mph</span> above the posted limit.<br>The associated fine is <span class="warning">$130, or $180 in a construction zone</span>.';
+    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">1-10mph</span> above the posted limit. The associated fine is <span class="warning">$130, or $180 in a construction zone</span>.';
   } else if (difference >= 11 && difference <= 15) {
-    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">11-15mph</span> above the posted limit.<br>The associated fine is <span class="warning">$160, or $230 in a construction zone</span>.';
+    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">11-15mph</span> above the posted limit. The associated fine is <span class="warning">$160, or $230 in a construction zone</span>.';
   } else if (difference >= 16 && difference <= 20) {
-    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">16-20mph</span> above the posted limit.<br>The associated fine is <span class="warning">$210, or $330 in a construction zone</span>.';
+    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">16-20mph</span> above the posted limit. The associated fine is <span class="warning">$210, or $330 in a construction zone</span>.';
   } else if (difference >= 21 && difference <= 25) {
-    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">21-25mph</span> above the posted limit.<br>The associated fine is <span class="warning">$280, or $480 in a construction zone</span>.';
+    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">21-25mph</span> above the posted limit. The associated fine is <span class="warning">$280, or $480 in a construction zone</span>.';
   } else if (difference >= 26 && difference <= 30) {
-    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">26-30mph</span> above the posted limit.<br>The associated fine is <span class="warning">$380, or $680 in a construction zone</span>.';
+    document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">26-30mph</span> above the posted limit. The associated fine is <span class="warning">$380, or $680 in a construction zone</span>.';
   } else if (difference >= 31) {
-    document.getElementById('result').innerHTML = '&#8224;The charged speed is <span class="warning">greater than 30mph</span> above the posted limit.<br><span class="warning">The driver is mandated to contact the court</span>.';
+    document.getElementById('result').innerHTML = '&#8224;The charged speed is <span class="warning">greater than 30mph</span> above the posted limit. <span class="warning">The driver is mandated to contact the court</span>.';
   } else {
     document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get associated monetary fine.';
   }
