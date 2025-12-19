@@ -197,3 +197,44 @@ const pdfViewer = (function () {
 document.addEventListener('DOMContentLoaded', () => {
   pdfViewer.checkPDF();
 });
+
+
+        const pdfModalViewer = (function() {
+            const pdfModal = document.getElementById('pdfModal');
+            const modalPDFViewer = document.getElementById('modalPDFViewer');
+
+            function loadPDF(url) {
+                modalPDFViewer.src = url;
+                openModal();
+            }
+
+            function openModal() {
+                pdfModal.style.display = 'block'; // Show modal
+            }
+
+            function closeModal() {
+                pdfModal.style.display = 'none'; // Hide modal
+                modalPDFViewer.src = ''; // Clear the iframe source to stop loading the PDF
+            }
+
+            // Close modal when clicking outside of modal content
+            pdfModal.addEventListener('click', function(event) {
+                if (event.target === pdfModal) {
+                    closeModal();
+                }
+            });
+
+            return {
+                loadPDF: loadPDF,
+                closeModal: closeModal
+            }
+        })();
+
+        // Optional: Optional for testing responsive layouts
+        document.addEventListener('click', function(event) {
+            if (event.target === pdfModalViewer.pdfModal) {
+                pdfModalViewer.closeModal();
+            }
+        });
+
+

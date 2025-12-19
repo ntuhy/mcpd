@@ -35,6 +35,12 @@
     </div>
 
     <div id="tab1" class="tab-content active">
+          <div id="pdfModal">
+        <div id="modalContent">
+            <span class="close" onclick="pdfModalViewer.closeModal()">&times;</span>
+            <iframe id="modalPDFViewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
       <table class="table-content">
         <tr>
           <td class="table-bs">
@@ -115,7 +121,7 @@
                     <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(aa),or%20not%2C%20including%3A" target="_blank">Marijuana Definition</a></li>
                   </ul>
                 </li>
-                <li>Medical Cannabis Flow Charts -- <a href="PDFs/UMCFlowChart-Res.pdf" target="_blank">Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a><span class="info">PDFs</span></li>
+                <li>Medical Cannabis Flow Charts -- <a href="#" onclick="pdfModalViewer.loadPDF('PDFs/UMCFlowChart-Res.pdf')">Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a><span class="info">PDFs</span></li>
               </ul>
               <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V<br>
               <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Possession of Paraphernalia<span class="charge">MB</span>
@@ -123,6 +129,36 @@
           </td>
 
           <td class="table-bs">
+            <div class="urgent">
+              <span class="h2">Radio Information</span>
+              <a href="https://docs.google.com/spreadsheets/d/12OVnBx07yJ1PgtxVcaUMmGbhWA3574WeUlAvA2LFAI0/edit?usp=sharing" target="_blank">MCPD Radio Issues</a><span class="info">🔒</span> - Google Sheet tracking radio problems<br>
+              <a href="https://5841771.extforms.netsuite.com/app/site/crm/externalcasepage.nl/compid.5841771/.f?formid=3&h=AAFdikaIKLskPOn-PCiB_-TpbOmcG5rUY2G2v9lOv4csKRaV9J0" target="_blank">UCA Issue Reporting</a> - Report radio or coverage issues directly to UCA<br>
+              <a href="#" onclick="pdfModalViewer.loadPDF('https://drive.google.com/file/d/1W1ZQgw81Ch-RMpYHej3vBAwjULWpW6uB/preview')">MCPD Radio Zones & Channels</a><span class="info">🔒 PDF</span>
+            </div>
+
+            <div class="p">
+              <span class="h2">Helpful Resources</span><br>
+              <form autocomplete="off">
+                <input type="text" id="VIN" placeholder="Search VIN" maxlength="17"/>
+                <button class="button" onclick="vinCheck()">GO!</button>
+                <button class="clearButton" type="reset">X</button>
+              </form>
+              <hr class="hr3" />
+              <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">🔒</span><br>
+              <a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">🔒</span><br>
+              <a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">🔒</span><br>
+              <hr class="hr2" />
+              <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
+              <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
+              <a href="https://www.grandcountyutah.net/947/Jail-Inmate-List" target="_blank">Grand County Inmate List</a><br>
+              <a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
+              <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
+              <a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a><br>
+              <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
+              <a href="https://connect.udot.utah.gov/public/contact-udot/click-n-fix/" target="_blank">UDOT Click'n'Fix</a><br>
+              <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a>              
+            </div>
+
             <div class="p">
               <span class="h2">Domestic Violence</span><br>
               <a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br>
@@ -168,29 +204,7 @@
                   </tr>
                 </table>
               </div>
-            </div>
-
-            <div class="p">
-              <span class="h2">Helpful Resources</span><br>
-              <form autocomplete="off">
-                <input type="text" id="VIN" placeholder="Search VIN" maxlength="17"/>
-                <button class="button" onclick="vinCheck()">GO!</button>
-                <button class="clearButton" type="reset">X</button>
-              </form>
-              <hr class="hr3" />
-              <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">🔒</span><br>
-              <a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">🔒</span><br>
-              <a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">🔒</span><br>
-              <hr class="hr2" />
-              <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
-              <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
-              <a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
-              <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
-              <a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a><br>
-              <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
-              <a href="https://connect.udot.utah.gov/public/contact-udot/click-n-fix/" target="_blank">UDOT Click'n'Fix</a><br>
-              <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a>
-            </div>
+            </div>            
 
             <div class="p">
               <span class="h2">Convert Metric to 'Murican</span>
@@ -380,7 +394,7 @@
     </div>
 
     <div class="footer">
-      <span class="small">Last updated 12/14/2025 @ 02:00</span>
+      <span class="small">Last updated 12/18/2025 @ 23:30</span>
     </div>
     <script src="mainScripting.js"></script>
   </body>
