@@ -210,10 +210,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function openModal() {
                 pdfModal.style.display = 'block'; // Show modal
+                setTimeout(() => {
+                    pdfModal.style.opacity = '1'; // Fade in effect
+                }, 10); // Small delay to allow display to take effect
             }
 
             function closeModal() {
-                pdfModal.style.display = 'none'; // Hide modal
+                pdfModal.style.opacity = '0'; // Fade out effect
+                setTimeout(() => {
+                    pdfModal.style.display = 'none'; // Hide modal after fading out
+                }, 500); // Wait for the fade-out duration before hiding the modal
                 modalPDFViewer.src = ''; // Clear the iframe source to stop loading the PDF
             }
 

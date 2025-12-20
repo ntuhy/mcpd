@@ -149,7 +149,7 @@ a:hover {
 }
 
 .table-form {
-  width: 100%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -163,6 +163,10 @@ a:hover {
   border-radius: 10px;
   background-color: #0000007d;
   box-shadow: 0 0 3px 3px #000000;
+}
+
+.title {
+  padding-top:100px !important;
 }
 
 .content {
@@ -402,6 +406,53 @@ ul {
   height:650px;
   border-radius:5px;
 }
+
+
+
+        #pdfModal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1069; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow:hidden; /* Enable scroll */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            opacity:0;
+            transition:opacity 0.5s ease;
+        }
+
+        #modalContent {
+            background-color: #0a0a0a;
+            border-radius:5px;
+            margin: 2% auto; /* 15% from the top and centered */
+            padding: 3px;
+            padding-right: 15px;
+            border: 3px solid #6ae1ff;
+            width: 65%; /* Could be more or less, depending on screen size */
+        }
+#modalPDFViewer {
+  height:575px;
+  width:100%;
+}
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
 /*
 a[href^="http"]:after{ 
     content:"\2197";
@@ -443,7 +494,12 @@ input[type="text"]:valid {
 }
 
 input:focus::placeholder {
-  color: #555;
+  color: #FFF;
+}
+
+#observed, #confirmed, #zone, #charged {
+  font-size:20pt;
+  font-weight:bold;
 }
 
 .location {
@@ -558,48 +614,3 @@ textarea:focus {
   justify-content: center;
   align-items: center;
 }
-
-
-
-
-        #pdfModal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1069; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow:hidden; /* Enable scroll */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-
-        #modalContent {
-            background-color: #0a0a0a;
-            border-radius:5px;
-            margin: 2% auto; /* 15% from the top and centered */
-            padding: 3px;
-            padding-right: 15px;
-            border: 3px solid #6ae1ff;
-            width: 65%; /* Could be more or less, depending on screen size */
-        }
-#modalPDFViewer {
-  height:575px;
-  width:100%;
-}
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover, .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
