@@ -68,7 +68,7 @@ function calculateDifference() {
   } else if (difference >= 31) {
     document.getElementById('result').innerHTML = 'The charged speed is <span class="warning">greater than 30mph</span> above the posted limit. <span class="warning">The driver is mandated to contact the court</span>.';
   } else {
-    document.getElementById('result').innerHTML = 'Enter data in "MPH Zone" and "Charged" to get associated monetary fine.';
+    document.getElementById('result').innerHTML = '‡Enter data in "MPH Zone" and "Charged" to get associated monetary fine.';
   }
 }
 
@@ -241,6 +241,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target === pdfModalViewer.pdfModal) {
                 pdfModalViewer.closeModal();
             }
+        });
+
+
+
+        const checkbox1 = document.getElementById('check-locked');
+        const content1 = document.getElementById('check-lockedContent');
+
+        const checkbox2 = document.getElementById('check-aware');
+        const content2 = document.getElementById('check-awareContent');
+
+        checkbox1.addEventListener('change', function() {
+            content1.style.display = this.checked ? 'block' : 'none'; // Show or hide content 1
+        });
+
+        checkbox2.addEventListener('change', function() {
+            content2.style.display = this.checked ? 'block' : 'none'; // Show or hide content 2
         });
 
 

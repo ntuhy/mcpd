@@ -148,8 +148,12 @@ a:hover {
   font-weight: bold !important;
 }
 
+.hiddenContent {
+  display:none;
+}
+
 .table-form {
-  width: 80%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -196,6 +200,7 @@ a:hover {
   border-radius:5px;
   overflow:hidden;
   width:75%;
+  margin-left:20px;
 }
 .tableCurfew {
   border-collapse:collapse;
@@ -226,7 +231,7 @@ a:hover {
   border: 3px solid #fb5454;
   border-radius: 8px;
   background-color: #222222d7;
-  box-shadow: inset 0 0 25px 10px #6c0000d7;
+  box-shadow: inset 0 0 25px 10px #bb0000d7;
 }
 
 .urgent .h2 {
@@ -355,7 +360,7 @@ hr.hr2 {
   float:left;
   width:65%;
   margin-right:35%;
-  border-top: 2pt solid #333;
+  border-top: 2pt solid #88888869;
 }
 
 hr.hr3 {
