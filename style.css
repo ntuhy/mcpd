@@ -84,8 +84,8 @@ body {
   display: inline-block;
   width: 100%;
   margin-bottom: 5px;
-  padding: 0;
-  border-bottom: 5px solid #FF6B00;
+  padding:0;
+  border-bottom:5px solid #FF6B00;
   border-radius: 5px;
   background-color: transparent;
   color: #FF6B00;
@@ -245,6 +245,7 @@ a[rel="external"]::after {
 
 .urgent .h2 {
   color:#FFF;
+  border-bottom:5px solid #fb5454;
 }
 
 .urgent a {
