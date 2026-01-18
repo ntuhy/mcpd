@@ -112,7 +112,7 @@ function copyl() {
 }
 
 function vinCheck() {
-  const baseURL = 'https://vpic.nhtsa.dot.gov/decoder/Decoder?VIN=';
+  const baseURL = 'https://vpic.nhtsa.dot.gov/decoder/VinDecoder?VIN=';
   const vin = document.getElementById('VIN').value.trim();
 
   if (!/^[a-zA-Z0-9]*$/.test(vin)) {
