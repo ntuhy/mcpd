@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="style.css">
-    <!--https://www.shecodes.io/athena#question-422123-->
+    <!--https://www.shecodes.io/athena#question-422123-->    
   </head>
   <body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
     <div class="header">
@@ -31,7 +31,11 @@
       <div class="tab active" onclick="showContent('tab1', this)">Utah Code & Resources</div>
       <div class="tab" onclick="showContent('tab2', this)">Citation Template</div>
       <div class="tab" onclick="showContent('tab3', this)">Area Maps</div>
+      <!--<div class="tab" onclick="showContent('tab4', this)">Case Law</div>
+      <div class="tab" onclick="showContent('tab5', this)">Google Calendar</div>-->
       <div class="tab" onclick="showContent('tab4', this)">Google Calendar</div>
+      <br>
+      <span class="h3" id="current-date"></span>
     </div>
 
     <div id="tab1" class="tab-content active">
@@ -50,7 +54,7 @@
               <span class="h3">Speeding</span>
               <div class="indent">
                 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding<br>
-                <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<span class="charge">MC</span><span class="fine">$260+</span><br>
+                <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<span class="charge">Inf-MC</span><span class="fine">$260+</span><br>
                 <ul>
                   <li><a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S303.html" target="_blank">41-6a-303</a> - Reduced Speed School Zone Definition</li>
                 </ul>
@@ -61,8 +65,9 @@
               <div class="indent">
                 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> - Traffic Signal; Stop Sign Violations<br>
                 <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a> - Reckless Driving<span class="charge">MB</span><br>
-                <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">41-6a-1715</a> - Careless Driving<span class="charge">MC</span><br>
-                <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed/Barricades<span class="charge">MB-MA</span><br>
+                <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">41-6a-1715</a> - Careless Driving<span class="charge">Inf</span><br>
+                <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1716.html" target="_blank">41-6a-1716</a> - Distracted Driving<span class="charge">MC</span><br>
+                <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed/Obstructing w/ Barricades<span class="charge">MB-MA</span><br>
                 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S702.html" target="_blank">41-6a-702</a> - Left/Other Lane Restrictions<br>
                 <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a> - Passing, Proper Procedures<br>
                 <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">41-6a-705</a> - Passing on Right<br>
@@ -143,13 +148,13 @@
 
             <div class="p">
               <span class="h2">Drugs/Paraphernalia & Definitions</span><br>
-              <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a Controlled Substance<span class="charge">MB - F1</span><br>
+              <a href="https://le.utah.gov/xcode/Title76/Chapter18/76-18-S207.html" target="_blank">76-18-207</a> - Possession of a Controlled Substance<span class="charge">MB - F1</span><br>
               <ul>
-                <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(f),drug%20or%20substance%3A" target="_blank">58-37-2</a> - Definition of Controlled Substance (Schedule I-V)</li>
-                <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Schedules of Controlled Substances I-V</li>
-                <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html#:~:text=(2).-,(d),4.2%2C%20or%20marijuana%2C%20is%20guilty%20of%20a%20class%20B%20misdemeanor.,-(ii)" target="_blank">58-37-8(2)(d)(i)</a> - Possession of Marijuana<span class="charge">MB</span>
+                <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S101.html?v=C58-37-S101_2026050620260506#:~:text=(e),drug%20or%20substance%3A" target="_blank">58-37-101</a> - Definition of Controlled Substance (Schedule I-V)</li>
+                <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S108.html" target="_blank">58-37-108</a> - Schedules of Controlled Substances I-V</li>
+                <li><a href="https://le.utah.gov/xcode/Title76/Chapter18/76-18-S207.html?v=C76-18-S207_2026050620260506#:~:text=is%20based%3B%20or-,(d),including%20a%20substance%20listed%20in%20Section%2058%2D37%2D109%20or%20marijuana.,-(4)" target="_blank">76-18-207(3)(d)</a> - Possession of Marijuana<span class="charge">MB</span>
                   <ul>
-                    <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(aa),or%20not%2C%20including%3A" target="_blank">58-37-2(aa)(i)</a> - Marijuana Definition</li>
+                    <li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S101.html?v=C58-37-S101_2026050620260506#:~:text=(w),or%20isolated%20tetrahydrocannabinols." target="_blank">58-37-101(1)(w)(i)</a> - Marijuana Definition</li>
                   </ul>
                 </li>
                 <li>Medical Cannabis Flow Charts
@@ -159,7 +164,7 @@
                   </ul>
                   </li>
               </ul>
-              <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Possession of Paraphernalia<span class="charge">MB</span>
+              <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Unlawful Use of Paraphernalia<span class="charge">MB</span>
             </div>
           </td>
 
@@ -178,7 +183,14 @@
                 <button class="button" onclick="vinCheck()">GO!</button>
                 <button class="clearButton" type="reset">X</button>
               </form>
-              <hr class="hr3" />
+              <span class="h3">If born after:</span><br>
+              <span id="date18"></span> - Under 18
+            <br>
+            <span id="date21"></span> - Under 21
+            </div>
+
+            <div class="p">
+              <span class="h2">Helpful Links</span><br>
               <a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">🔒</span><br>
               <a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">🔒</span><br>
               <a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">🔒</span><br>
@@ -190,8 +202,9 @@
               <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a> - View Upcoming Hearings<br>
               <a href="https://corrections.utah.gov/inmate-services/offender-search/" target="_blank">UDC Offender Search</a> - State Prison Inmate Search<br>
               <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a> - DL Point Values by Violation<br>
+              <a href="https://www.udottraffic.utah.gov/" target="_blank">UDOT Traffic Map</a> - Live Incidents, Cameras, etc.<br>
               <a href="https://connect.udot.utah.gov/public/contact-udot/click-n-fix/" target="_blank">UDOT Click'n'Fix</a> - Report issues directly to UDOT<br>
-              <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a> - Federal Motor Carrier Search             
+              <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a> - Federal Motor Carrier Search
             </div>
 
             <div class="p">
@@ -442,7 +455,7 @@
     </div>
 
     <div class="footer">
-      <span class="small">Last updated 01/14/2026 @ 03:30</span>
+      <span class="small">Last updated 05/21/2026 @ 02:45</span>
     </div>
     <script src="mainScripting.js"></script>
   </body>

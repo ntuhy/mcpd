@@ -260,3 +260,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
+
+        function formatDate(month, day, year) {
+            const date = new Date(year, month - 1, day);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Get current date
+        const now = new Date();
+        const currentMonth = now.getMonth() + 1;  // 1-based
+        const currentDay = now.getDate();
+        const currentYear = now.getFullYear();
+
+        // Update current date display
+        document.getElementById('current-date').textContent = 
+            now.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+
+        // Calculate cutoff years
+        const year18 = currentYear - 18;
+        const year21 = currentYear - 21;
+
+        // Display dates
+        document.getElementById('date18').textContent = 
+            formatDate(currentMonth, currentDay, year18);
+
+        document.getElementById('date21').textContent = 
+            formatDate(currentMonth, currentDay, year21);
