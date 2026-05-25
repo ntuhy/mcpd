@@ -23,8 +23,10 @@
     <!--https://www.shecodes.io/athena#question-422123-->    
   </head>
   <body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
+    
     <div class="header">
-      <span class="h1">MCPD Resource Guide</span>
+      <span class="h1">MCPD Resource Guide</span><br>
+      <span class="h3" id="current-date"></span>
     </div>
 
     <div>
@@ -35,7 +37,7 @@
       <div class="tab" onclick="showContent('tab5', this)">Google Calendar</div>-->
       <div class="tab" onclick="showContent('tab4', this)">Google Calendar</div>
       <br>
-      <span class="h3" id="current-date"></span>
+      
     </div>
 
     <div id="tab1" class="tab-content active">
@@ -164,7 +166,7 @@
                   </ul>
                   </li>
               </ul>
-              <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Unlawful Use of Paraphernalia<span class="charge">MB</span>
+              <a href="https://le.utah.gov/xcode/Title76/Chapter18/76-18-S304.html" target="_blank">76-18-304</a> - Unlawful Use of Drug Paraphernalia<span class="charge">MB</span>
             </div>
           </td>
 
@@ -183,7 +185,7 @@
                 <button class="button" onclick="vinCheck()">GO!</button>
                 <button class="clearButton" type="reset">X</button>
               </form>
-              <span class="h3">If born after:</span><br>
+              <span class="h3">Age check:</span><br>
               <span id="date18"></span> - Under 18
             <br>
             <span id="date21"></span> - Under 21
@@ -455,7 +457,7 @@
     </div>
 
     <div class="footer">
-      <span class="small">Last updated 05/21/2026 @ 02:45</span>
+      <span class="small">Last updated 05/25/2026 @ 09:00</span>
     </div>
     <script src="mainScripting.js"></script>
   </body>
