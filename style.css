@@ -399,6 +399,22 @@ ul {
   padding: 5px;
 }
 
+.caseLaw {
+  width:100%;
+  height:100% !important;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.caseLaw td {
+  width:30%;
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
 .pdfViewer {
   width:100%;
   margin-left:auto;
