@@ -1,7 +1,7 @@
 function update() {
     //RADAR
           {
-            const value1 = document.querySelector("textarea.radar1").value = `My radar unit passed an internal systems check at the beginning of my shift, and I perform a check after each traffic stop.
+            const value1 = document.querySelector("textarea.radar1").value = `My radar unit passed an internal systems check during the course of my shift when it was turned on.
 
 I observed a vehicle near ${locate.value} traveling ${direction.value}${observed.value}mph, confirming a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my ${ms.value}, ${fr.value}, ${os.value} radar.`;
             const value2 = document.querySelector("textarea.radar2").value = `
